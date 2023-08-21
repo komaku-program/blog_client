@@ -10,7 +10,9 @@ type Props = {
 export async function getServerSideProps(context: any) {
   const id = context.params.id;
 
-  const res = await fetch(`http://localhost:3001/api/v1/posts/${id}`);
+  const res = await fetch(
+    `https://taka-blog-api-6079246b73b1.herokuapp.com/api/v1/posts/${id}`
+  );
   const post = await res.json();
 
   return {
@@ -30,10 +32,13 @@ const EditPost = ({ post }: Props) => {
     e.preventDefault();
 
     try {
-      await axios.put(`http://localhost:3001/api/v1/posts/${post.id}`, {
-        title: title,
-        content: content,
-      });
+      await axios.put(
+        `https://taka-blog-api-6079246b73b1.herokuapp.com/api/v1/posts/${post.id}`,
+        {
+          title: title,
+          content: content,
+        }
+      );
 
       router.push("/");
     } catch (err) {
