@@ -12,10 +12,13 @@ const CreatePost = () => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:3001/api/v1/posts", {
-        title: title,
-        content: content,
-      });
+      await axios.post(
+        "https://taka-blog-api-6079246b73b1.herokuapp.com/api/v1/posts",
+        {
+          title: title,
+          content: content,
+        }
+      );
 
       router.push("/");
     } catch (err) {

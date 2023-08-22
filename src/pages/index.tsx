@@ -14,7 +14,9 @@ type Props = {
 };
 
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:3001/api/v1/posts");
+  const res = await fetch(
+    "https://taka-blog-api-6079246b73b1.herokuapp.com/api/v1/posts"
+  );
   const posts = await res.json();
 
   return {
@@ -29,7 +31,9 @@ export default function Home({ posts }: Props) {
   const router = useRouter();
   const handleDelete = async (postId: string) => {
     try {
-      await axios.delete(`http://localhost:3001/api/v1/posts/${postId}`);
+      await axios.delete(
+        `https://taka-blog-api-6079246b73b1.herokuapp.com/api/v1/posts/${postId}`
+      );
       // 今後リロードではなく、non displayなどにすることを検討
       router.reload();
     } catch (err) {
