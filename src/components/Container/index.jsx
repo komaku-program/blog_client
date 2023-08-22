@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "@/components/Container/Container.module.css";
+import Image from "next/image";
 
 const Container = () => {
   return (
@@ -18,7 +19,12 @@ const Container = () => {
             </li>
           </ul>
           <a href="#">
-            <img src="#" alt="テキストテキストテキスト" />
+            <Image
+              src="/img/cooltext441555946653111.png"
+              alt="たかブログ"
+              width="200"
+              height="64"
+            />
           </a>
           <p className={styles.text}>
             本文テキストテキストテキストテキストテキストテキストテキストテキスト
@@ -43,7 +49,12 @@ const Container = () => {
             </li>
           </ul>
           <a href="#">
-            <img src="#" alt="テキストテキストテキスト" />
+            <Image
+              src="/img/cooltext441555946653111.png"
+              alt="たかブログ"
+              width="200"
+              height="64"
+            />
           </a>
           <p className={styles.text}>
             本文テキストテキストテキストテキストテキストテキストテキストテキスト
@@ -68,7 +79,12 @@ const Container = () => {
             </li>
           </ul>
           <a href="#">
-            <img src="#" alt="テキストテキストテキスト" />
+            <Image
+              src="/img/cooltext441555946653111.png"
+              alt="たかブログ"
+              width="200"
+              height="64"
+            />
           </a>
           <p className={styles.text}>
             本文テキストテキストテキストテキストテキストテキストテキストテキスト
@@ -83,7 +99,12 @@ const Container = () => {
 
       <aside className={styles.sidebar}>
         <section className={styles.author}>
-          <img src="#" alt="テキストテキストテキスト" />
+          <Image
+            src="/img/cooltext441555946653111.png"
+            alt="たかブログ"
+            width="200"
+            height="64"
+          />
           <h3 className={styles.side_title}>Name Name</h3>
           <p className={styles.profile}>
             プロフィールテキストテキストテキストテキストテキストテキストテキスト
@@ -96,7 +117,12 @@ const Container = () => {
           <h3 className={styles.side_title}>Ranking</h3>
           <article>
             <a href="#">
-              <img src="#" alt="テキストテキストテキスト" />
+              <Image
+                src="/img/cooltext441555946653111.png"
+                alt="たかブログ"
+                width="200"
+                height="64"
+              />
               <h4 className={styles.article_title}>
                 タイトルテキストテキストテキストテキストテキストテキスト
               </h4>
@@ -105,7 +131,12 @@ const Container = () => {
 
           <article>
             <a href="#">
-              <img src="#" alt="テキストテキストテキスト" />
+              <Image
+                src="/img/cooltext441555946653111.png"
+                alt="たかブログ"
+                width="200"
+                height="64"
+              />
               <h4 className={styles.article_title}>
                 タイトルテキストテキストテキストテキストテキストテキスト
               </h4>
@@ -114,7 +145,12 @@ const Container = () => {
 
           <article>
             <a href="#">
-              <img src="#" alt="テキストテキストテキスト" />
+              <Image
+                src="/img/cooltext441555946653111.png"
+                alt="たかブログ"
+                width="200"
+                height="64"
+              />
               <h4 className={styles.article_title}>
                 タイトルテキストテキストテキストテキストテキストテキスト
               </h4>
