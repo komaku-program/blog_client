@@ -9,7 +9,7 @@ const Container = () => {
           <h2 className={styles.article_title}>
             <a href="#">タイトルテキストテキストテキストテキストテキスト</a>
           </h2>
-          <ul class="meta">
+          <ul className={styles.meta}>
             <li>
               <a href="#">2020/01/01</a>
             </li>
@@ -34,7 +34,7 @@ const Container = () => {
           <h2 className={styles.article_title}>
             <a href="#">タイトルテキストテキストテキストテキストテキスト</a>
           </h2>
-          <ul class="meta">
+          <ul className={styles.meta}>
             <li>
               <a href="#">2020/01/01</a>
             </li>
@@ -59,7 +59,7 @@ const Container = () => {
           <h2 className={styles.article_title}>
             <a href="#">タイトルテキストテキストテキストテキストテキスト</a>
           </h2>
-          <ul class="meta">
+          <ul className={styles.meta}>
             <li>
               <a href="#">2020/01/01</a>
             </li>

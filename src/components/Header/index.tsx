@@ -10,7 +10,6 @@ const Header = () => {
           <Image
             src="/img/cooltext441555946653111.png"
             alt="たかブログ"
-            objectFit={"cover"}
             width="200"
             height="64"
           />

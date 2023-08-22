@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useRouter } from "next/router";
-import React, { ChangeEvent, FormEvent, use, useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 
 const CreatePost = () => {
   // 後日UseFormなるものを追加予定
