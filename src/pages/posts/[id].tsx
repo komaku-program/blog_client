@@ -1,6 +1,5 @@
 import { Post } from "@/types";
 import { useRouter } from "next/router";
-import { type } from "os";
 import React from "react";
 
 type Props = {

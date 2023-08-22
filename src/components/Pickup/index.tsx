@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "@/components/Pickup/Pickup.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const Pickup = () => {
   return (
@@ -16,7 +17,7 @@ const Pickup = () => {
           タイトルテキストテキストテキストテキストテキストテキストテキスト
         </h2>
         <div className={styles.readmore}>
-          <a href="#">READ MORE</a>
+          <Link href="#">READ MORE</Link>
         </div>
       </article>
 
@@ -31,7 +32,7 @@ const Pickup = () => {
           タイトルテキストテキストテキストテキストテキストテキストテキスト
         </h2>
         <div className={styles.readmore}>
-          <a href="#">READ MORE</a>
+          <Link href="#">READ MORE</Link>
         </div>
       </article>
 
@@ -46,7 +47,7 @@ const Pickup = () => {
           タイトルテキストテキストテキストテキストテキストテキストテキスト
         </h2>
         <div className={styles.readmore}>
-          <a href="#">READ MORE</a>
+          <Link href="#">READ MORE</Link>
         </div>
       </article>
     </div>

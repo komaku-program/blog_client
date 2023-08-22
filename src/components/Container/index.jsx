@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "@/components/Container/Container.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const Container = () => {
   return (
@@ -8,91 +9,97 @@ const Container = () => {
       <main className={styles.main}>
         <article>
           <h2 className={styles.article_title}>
-            <a href="#">タイトルテキストテキストテキストテキストテキスト</a>
+            <Link href="#">
+              タイトルテキストテキストテキストテキストテキスト
+            </Link>
           </h2>
           <ul className={styles.meta}>
             <li>
-              <a href="#">2020/01/01</a>
+              <Link href="#">2020/01/01</Link>
             </li>
             <li>
-              <a href="#">カテゴリ1</a>
+              <Link href="#">カテゴリ1</Link>
             </li>
           </ul>
-          <a href="#">
+          <Link href="#">
             <Image
               src="/img/cooltext441555946653111.png"
               alt="たかブログ"
               width="200"
               height="64"
             />
-          </a>
+          </Link>
           <p className={styles.text}>
             本文テキストテキストテキストテキストテキストテキストテキストテキスト
             テキストテキストテキストテキストテキストテキストテキストテキストテキスト
             テキストテキストテキストテキストテキストテキストテキストテキストテキスト
           </p>
           <div className={styles.readmore}>
-            <a href="#">READ MORE</a>
+            <Link href="#">READ MORE</Link>
           </div>
         </article>
 
         <article>
           <h2 className={styles.article_title}>
-            <a href="#">タイトルテキストテキストテキストテキストテキスト</a>
+            <Link href="#">
+              タイトルテキストテキストテキストテキストテキスト
+            </Link>
           </h2>
           <ul className={styles.meta}>
             <li>
-              <a href="#">2020/01/01</a>
+              <Link href="#">2020/01/01</Link>
             </li>
             <li>
-              <a href="#">カテゴリ1</a>
+              <Link href="#">カテゴリ1</Link>
             </li>
           </ul>
-          <a href="#">
+          <Link href="#">
             <Image
               src="/img/cooltext441555946653111.png"
               alt="たかブログ"
               width="200"
               height="64"
             />
-          </a>
+          </Link>
           <p className={styles.text}>
             本文テキストテキストテキストテキストテキストテキストテキストテキスト
             テキストテキストテキストテキストテキストテキストテキストテキストテキスト
             テキストテキストテキストテキストテキストテキストテキストテキストテキスト
           </p>
           <div className={styles.readmore}>
-            <a href="#">READ MORE</a>
+            <Link href="#">READ MORE</Link>
           </div>
         </article>
 
         <article>
           <h2 className={styles.article_title}>
-            <a href="#">タイトルテキストテキストテキストテキストテキスト</a>
+            <Link href="#">
+              タイトルテキストテキストテキストテキストテキスト
+            </Link>
           </h2>
           <ul className={styles.meta}>
             <li>
-              <a href="#">2020/01/01</a>
+              <Link href="#">2020/01/01</Link>
             </li>
             <li>
-              <a href="#">カテゴリ1</a>
+              <Link href="#">カテゴリ1</Link>
             </li>
           </ul>
-          <a href="#">
+          <Link href="#">
             <Image
               src="/img/cooltext441555946653111.png"
               alt="たかブログ"
               width="200"
               height="64"
             />
-          </a>
+          </Link>
           <p className={styles.text}>
             本文テキストテキストテキストテキストテキストテキストテキストテキスト
             テキストテキストテキストテキストテキストテキストテキストテキストテキスト
             テキストテキストテキストテキストテキストテキストテキストテキストテキスト
           </p>
           <div className={styles.readmore}>
-            <a href="#">READ MORE</a>
+            <Link href="#">READ MORE</Link>
           </div>
         </article>
       </main>
@@ -116,7 +123,7 @@ const Container = () => {
         <section className={styles.ranking}>
           <h3 className={styles.side_title}>Ranking</h3>
           <article>
-            <a href="#">
+            <Link href="#">
               <Image
                 src="/img/cooltext441555946653111.png"
                 alt="たかブログ"
@@ -126,11 +133,11 @@ const Container = () => {
               <h4 className={styles.article_title}>
                 タイトルテキストテキストテキストテキストテキストテキスト
               </h4>
-            </a>
+            </Link>
           </article>
 
           <article>
-            <a href="#">
+            <Link href="#">
               <Image
                 src="/img/cooltext441555946653111.png"
                 alt="たかブログ"
@@ -140,11 +147,11 @@ const Container = () => {
               <h4 className={styles.article_title}>
                 タイトルテキストテキストテキストテキストテキストテキスト
               </h4>
-            </a>
+            </Link>
           </article>
 
           <article>
-            <a href="#">
+            <Link href="#">
               <Image
                 src="/img/cooltext441555946653111.png"
                 alt="たかブログ"
@@ -154,7 +161,7 @@ const Container = () => {
               <h4 className={styles.article_title}>
                 タイトルテキストテキストテキストテキストテキストテキスト
               </h4>
-            </a>
+            </Link>
           </article>
         </section>
 
@@ -162,49 +169,49 @@ const Container = () => {
           <h3 className={styles.side_title}>Archive</h3>
           <ul>
             <li>
-              <a href="#">XXXX年XX月</a>(XX)
+              <Link href="#">XXXX年XX月</Link>(XX)
             </li>
             <li>
-              <a href="#">XXXX年XX月</a>(XX)
+              <Link href="#">XXXX年XX月</Link>(XX)
             </li>
             <li>
-              <a href="#">XXXX年XX月</a>(XX)
+              <Link href="#">XXXX年XX月</Link>(XX)
             </li>
             <li>
-              <a href="#">XXXX年XX月</a>(XX)
+              <Link href="#">XXXX年XX月</Link>(XX)
             </li>
             <li>
-              <a href="#">XXXX年XX月</a>(XX)
+              <Link href="#">XXXX年XX月</Link>(XX)
             </li>
             <li>
-              <a href="#">XXXX年XX月</a>(XX)
+              <Link href="#">XXXX年XX月</Link>(XX)
             </li>
             <li>
-              <a href="#">XXXX年XX月</a>(XX)
+              <Link href="#">XXXX年XX月</Link>(XX)
             </li>
             <li>
-              <a href="#">XXXX年XX月</a>(XX)
+              <Link href="#">XXXX年XX月</Link>(XX)
             </li>
             <li>
-              <a href="#">XXXX年XX月</a>(XX)
+              <Link href="#">XXXX年XX月</Link>(XX)
             </li>
             <li>
-              <a href="#">XXXX年XX月</a>(XX)
+              <Link href="#">XXXX年XX月</Link>(XX)
             </li>
             <li>
-              <a href="#">XXXX年XX月</a>(XX)
+              <Link href="#">XXXX年XX月</Link>(XX)
             </li>
             <li>
-              <a href="#">XXXX年XX月</a>(XX)
+              <Link href="#">XXXX年XX月</Link>(XX)
             </li>
             <li>
-              <a href="#">XXXX年XX月</a>(XX)
+              <Link href="#">XXXX年XX月</Link>(XX)
             </li>
             <li>
-              <a href="#">XXXX年XX月</a>(XX)
+              <Link href="#">XXXX年XX月</Link>(XX)
             </li>
             <li>
-              <a href="#">XXXX年XX月</a>(XX)
+              <Link href="#">XXXX年XX月</Link>(XX)
             </li>
           </ul>
         </section>
