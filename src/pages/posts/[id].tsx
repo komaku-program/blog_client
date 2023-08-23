@@ -7,9 +7,7 @@ type Props = {
 };
 
 export async function getStaticPaths() {
-  const res = await fetch(
-    "https://taka-blog-api-6079246b73b1.herokuapp.com/api/v1/posts"
-  );
+  const res = await fetch("http://localhost:3001/api/v1/posts");
   const posts: Post[] = await res.json();
 
   const paths = posts.map((post) => ({
@@ -23,9 +21,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: { params: { id: string } }) {
-  const res = await fetch(
-    `https://taka-blog-api-6079246b73b1.herokuapp.com/api/v1/posts/${params.id}`
-  );
+  const res = await fetch(`http://localhost:3001/api/v1/posts/${params.id}`);
   const post = await res.json();
 
   return {

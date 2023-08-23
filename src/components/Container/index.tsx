@@ -1,107 +1,56 @@
+import { Post } from "@/types";
 import React from "react";
 import styles from "@/components/Container/Container.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import axios from "axios";
+import { useRouter } from "next/router";
 
-const Container = () => {
+type Props = {
+  posts: Post[];
+};
+
+const Container = ({ posts }: Props) => {
+  const router = useRouter();
+  const handleDelete = async (postId: string) => {
+    try {
+      await axios.delete(`http://localhost:3001/api/v1/posts/${postId}`);
+      // 今後リロードではなく、non displayなどにすることを検討
+      router.reload();
+    } catch (err) {
+      alert("投稿に失敗しました");
+    }
+  };
   return (
     <div className={`${styles.container} ${styles.wrapper}`}>
       <main className={styles.main}>
-        <article>
-          <h2 className={styles.article_title}>
-            <Link href="#">
-              タイトルテキストテキストテキストテキストテキスト
+        {posts.map((post: Post) => (
+          <article className={styles.article} key={post.id}>
+            <div className={styles.date_wrapper}>
+              <p className={styles.create_date}>投稿日 2020/01/01</p>
+              <p className={styles.edit_date}>更新日 2020/01/01</p>
+            </div>
+            <Link href={`posts/${post.id}`}>
+              <h2 className={styles.article_title}>{post.title}</h2>
             </Link>
-          </h2>
-          <ul className={styles.meta}>
-            <li>
-              <Link href="#">2020/01/01</Link>
-            </li>
-            <li>
-              <Link href="#">カテゴリ1</Link>
-            </li>
-          </ul>
-          <Link href="#">
-            <Image
-              src="/img/cooltext441555946653111.png"
-              alt="たかブログ"
-              width="200"
-              height="64"
-            />
-          </Link>
-          <p className={styles.text}>
-            本文テキストテキストテキストテキストテキストテキストテキストテキスト
-            テキストテキストテキストテキストテキストテキストテキストテキストテキスト
-            テキストテキストテキストテキストテキストテキストテキストテキストテキスト
-          </p>
-          <div className={styles.readmore}>
-            <Link href="#">READ MORE</Link>
-          </div>
-        </article>
-
-        <article>
-          <h2 className={styles.article_title}>
             <Link href="#">
-              タイトルテキストテキストテキストテキストテキスト
+              <Image
+                src="/img/cooltext441555946653111.png"
+                alt="たかブログ"
+                width="200"
+                height="64"
+              />
             </Link>
-          </h2>
-          <ul className={styles.meta}>
-            <li>
-              <Link href="#">2020/01/01</Link>
-            </li>
-            <li>
-              <Link href="#">カテゴリ1</Link>
-            </li>
-          </ul>
-          <Link href="#">
-            <Image
-              src="/img/cooltext441555946653111.png"
-              alt="たかブログ"
-              width="200"
-              height="64"
-            />
-          </Link>
-          <p className={styles.text}>
-            本文テキストテキストテキストテキストテキストテキストテキストテキスト
-            テキストテキストテキストテキストテキストテキストテキストテキストテキスト
-            テキストテキストテキストテキストテキストテキストテキストテキストテキスト
-          </p>
-          <div className={styles.readmore}>
-            <Link href="#">READ MORE</Link>
-          </div>
-        </article>
-
-        <article>
-          <h2 className={styles.article_title}>
-            <Link href="#">
-              タイトルテキストテキストテキストテキストテキスト
+            <p className={styles.text}>{post.content}</p>
+            <div className={styles.readmore}>
+              <Link href="#">READ MORE</Link>
+            </div>
+            <Link href={`edit-post/${post.id}`}>
+              <button>Edit</button>
             </Link>
-          </h2>
-          <ul className={styles.meta}>
-            <li>
-              <Link href="#">2020/01/01</Link>
-            </li>
-            <li>
-              <Link href="#">カテゴリ1</Link>
-            </li>
-          </ul>
-          <Link href="#">
-            <Image
-              src="/img/cooltext441555946653111.png"
-              alt="たかブログ"
-              width="200"
-              height="64"
-            />
-          </Link>
-          <p className={styles.text}>
-            本文テキストテキストテキストテキストテキストテキストテキストテキスト
-            テキストテキストテキストテキストテキストテキストテキストテキストテキスト
-            テキストテキストテキストテキストテキストテキストテキストテキストテキスト
-          </p>
-          <div className={styles.readmore}>
-            <Link href="#">READ MORE</Link>
-          </div>
-        </article>
+            <button onClick={() => handleDelete(post.id)}>Delete</button>
+          </article>
+        ))}
       </main>
 
       <aside className={styles.sidebar}>
