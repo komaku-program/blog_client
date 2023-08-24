@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { ChangeEvent, FormEvent, useState } from "react";
+import ImageUploadForm from "@/components/ImageUploadForm/index";
 
 const CreatePost = () => {
-  // 後日UseFormなるものを追加予定
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [thumbnailUrl, setThumbnailUrl] = useState("");
   const router = useRouter();
 
   const handleSubmit = async (e: FormEvent) => {
@@ -15,6 +16,7 @@ const CreatePost = () => {
       await axios.post("http://localhost:3001/api/v1/posts", {
         title: title,
         content: content,
+        thumbnailUrl: thumbnailUrl, // サムネイル画像の URL を使って投稿
       });
 
       router.push("/");
@@ -40,7 +42,7 @@ const CreatePost = () => {
             setContent(e.target.value)
           }
         />
-
+        <ImageUploadForm setThumbnailUrl={setThumbnailUrl} />
         <button type="submit">投稿</button>
       </form>
     </div>
