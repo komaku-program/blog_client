@@ -22,7 +22,7 @@ const Header = () => {
             <Link href="#">HOME</Link>
           </li>
           <li>
-            <Link href="#">管理者の投稿</Link>
+            <Link href="#">管理人の投稿</Link>
           </li>
           <li>
             <Link href="#">みんなの投稿</Link>
