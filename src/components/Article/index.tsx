@@ -8,9 +8,10 @@ import { useRouter } from "next/router";
 
 type Props = {
   post: Post;
+  isFullText: boolean;
 };
 
-const Article = ({ post }: Props) => {
+const Article = ({ post, isFullText }: Props) => {
   const formatDate = (isoDate: string) => {
     const date = new Date(isoDate);
     const options: Intl.DateTimeFormatOptions = {
@@ -54,7 +55,9 @@ const Article = ({ post }: Props) => {
           height={200}
         />
       </Link>
-      <p className={styles.text}>{post.content}</p>
+      <p className={`${styles.text} ${isFullText ? "" : styles.truncated}`}>
+        {post.content}
+      </p>
       <div className={styles.readmore}>
         <Link href="#">READ MORE</Link>
       </div>

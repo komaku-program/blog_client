@@ -7,48 +7,39 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={`${styles.content} ${styles.wrapper}`}>
         <section className={styles.item}>
-          <h3 className={styles.footer_title}>About</h3>
-          <p>
-            テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-            テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-            テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+          <h3 className={styles.footer_title}>About me</h3>
+          <p className={styles.profile}>
+            これまで8年間、医療・福祉の分野で看護師・保育士として働いていました。
+            将来性があり、日々多くの学びを得ることができる分野で働きたいと思い、2022年4月よりプログラミングの学習を開始しました。
+            同年10月にWeb系エンジニアとしてフルリモートの会社に内定をいただき、家庭の事情で約半年インターンとして働きました。
+            しかし2023年7月に会社の都合で内定取り消しとなってしまったため、転職活動を再開しています。
           </p>
           <ul className={styles.about_list}>
             <li>
-              <Link href="#" className={styles.arrow}>
-                プロフィール詳細
-              </Link>
-            </li>
-            <li>
-              <Link href="#" className={styles.arrow}>
-                プロフィール詳細
-              </Link>
-            </li>
-            <li>
-              <Link href="#" className={styles.arrow}>
-                プロフィール詳細
-              </Link>
+              <div className={styles.readmore}>
+                <Link href="#">プロフィール詳細</Link>
+              </div>
             </li>
           </ul>
         </section>
 
         <section className={styles.item}>
-          <h3 className={styles.footer_title}>Menu</h3>
+          <h3 className={styles.footer_title}>Portfolio</h3>
           <ul className={styles.menu_list}>
             <li>
-              <Link href="#">NEW</Link>
+              <Link href="/">たかブログ（このブログです）</Link>
             </li>
             <li>
-              <Link href="#">CATEGORY</Link>
+              <Link href="#"></Link>
             </li>
             <li>
-              <Link href="#">COLUMN</Link>
+              <Link href="#"></Link>
             </li>
             <li>
-              <Link href="#">SERIES</Link>
+              <Link href="#"></Link>
             </li>
             <li>
-              <Link href="#">Q&A</Link>
+              <Link href="#"></Link>
             </li>
           </ul>
         </section>

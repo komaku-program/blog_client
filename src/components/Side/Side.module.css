@@ -106,9 +106,11 @@
   margin-bottom: 30px;
 }
 
-.author .profile {
+.profile {
+  padding: 10px;
   font-size: 0.875rem;
   text-align: left;
+  line-height: 1.6;
 }
 
 .ranking {

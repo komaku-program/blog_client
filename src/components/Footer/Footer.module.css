@@ -1,3 +1,30 @@
+.readmore {
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.readmore a {
+  padding-bottom: 1px;
+  color: #333;
+  position: relative;
+}
+
+.readmore a::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background: #333;
+  transition: all 200ms ease;
+}
+
+.readmore a:hover::after {
+  opacity: 0;
+  transform: translateY(3px);
+}
+
 .wrapper {
   max-width: 1200px;
   padding: 0 16px;
@@ -53,10 +80,6 @@
   margin-top: -6px;
 }
 
-.footer .menu_list {
-  border-bottom: solid 1px #777;
-}
-
 .footer .menu_list > li {
   border-top: solid 1px #777;
   padding: 15px;
@@ -72,6 +95,13 @@
   text-align: center;
   padding: 20px 15px 15px;
   color: white;
+}
+
+.profile {
+  padding: 10px;
+  font-size: 0.875rem;
+  text-align: left;
+  line-height: 1.6;
 }
 
 @media screen and (max-width: 767px) {

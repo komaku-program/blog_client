@@ -44,6 +44,13 @@
 .pickup .article_title {
   font-size: 1rem;
   margin: 10px 0 15px 0;
+  text-align: center;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+  position: relative;
 }
 
 @media screen and (max-width: 767px) {

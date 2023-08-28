@@ -21,7 +21,8 @@ const Header = () => {
           <li>
             <Link href="/">HOME</Link>
           </li>
-          <li>
+          {/* 以下はログイン機能実装後に使用 */}
+          {/* <li>
             <Link href="#">管理人の投稿</Link>
           </li>
           <li>
@@ -29,7 +30,7 @@ const Header = () => {
           </li>
           <li>
             <Link href="#">自分の投稿</Link>
-          </li>
+          </li> */}
           <li>
             <Link href="/create-post">新規投稿</Link>
           </li>

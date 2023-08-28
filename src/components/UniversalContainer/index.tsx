@@ -40,9 +40,11 @@ const UniversalContainer = ({ post, posts }: Props) => {
     <div className={`${styles.container} ${styles.wrapper}`}>
       <main className={styles.main}>
         {posts ? (
-          posts.map((singlePost: Post) => <Article post={singlePost} />)
+          posts.map((singlePost: Post) => (
+            <Article key={singlePost.id} isFullText={false} post={singlePost} />
+          ))
         ) : post ? (
-          <Article post={post} />
+          <Article key={post.id} isFullText={true} post={post} />
         ) : null}
       </main>
       <Side></Side>
