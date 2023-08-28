@@ -8,6 +8,7 @@ import Header from "@/components/Header/index";
 import Pickup from "@/components/Pickup/index";
 import Footer from "@/components/Footer/index";
 import Container from "@/components/Container";
+import UniversalContainer from "@/components/UniversalContainer";
 
 type Props = {
   posts: Post[];
@@ -45,7 +46,7 @@ export default function Home({ posts }: Props) {
       </Head>
       <Header />
       <Pickup />
-      <Container posts={posts} />
+      <UniversalContainer posts={posts} />
       <Footer />
     </div>
   );

@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <h1 className={`${styles.site_title} ${styles.wrapper}`}>
-        <Link href="#">
+        <Link href="/">
           <Image
             src="/img/cooltext441555946653111.png"
             alt="たかブログ"
@@ -19,7 +19,7 @@ const Header = () => {
       <nav className={styles.navi}>
         <ul className={styles.wrapper}>
           <li>
-            <Link href="#">HOME</Link>
+            <Link href="/">HOME</Link>
           </li>
           <li>
             <Link href="#">管理人の投稿</Link>
