@@ -52,12 +52,10 @@ const ImageUploadForm = ({ setThumbnailUrl }: ImageUploadFormProps) => {
 
   return (
     <div>
-      {/* <form action="http://localhost:3001/api/v1/uploads" method="post"> */}
       <input type="file" accept="image/*" onChange={handleImageChange} />
       <button type="button" onClick={handleUpload}>
         Upload Image
       </button>
-      {/* </form> */}
     </div>
   );
 };

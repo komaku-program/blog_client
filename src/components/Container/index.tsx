@@ -33,17 +33,17 @@ const Container = ({ posts }: Props) => {
             <Link href={`posts/${post.id}`}>
               <h2 className={styles.article_title}>{post.title}</h2>
             </Link>
-            <Link href="#" className={styles.imageWrapper}>
+            <Link href="#">
               <Image
+                className={styles.image}
                 src={
                   post.thumbnail
                     ? `http://localhost:3001${post.thumbnail}`
                     : "/img/cooltext441555946653111.png"
                 }
-                alt="たかブログ"
-                width="600"
-                height="200"
-                objectFit="cover"
+                alt="サムネイル画像"
+                width={1000}
+                height={200}
               />
             </Link>
             <p className={styles.text}>{post.content}</p>
