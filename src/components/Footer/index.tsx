@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/components/Footer/Footer.module.css";
 import Link from "next/link";
+import TwitterTimeline from "@/components/TwitterTimeline/index";
 
 const Footer = () => {
   return (
@@ -32,32 +33,16 @@ const Footer = () => {
             <li>
               <Link href="#"></Link>
             </li>
-            <li>
-              <Link href="#"></Link>
-            </li>
-            <li>
-              <Link href="#"></Link>
-            </li>
-            <li>
-              <Link href="#"></Link>
-            </li>
           </ul>
         </section>
 
         <section className={styles.item}>
           <h3 className={styles.footer_title}>Twitter</h3>
-          <Link
-            className={styles.twitter_timeline}
-            data-height="315"
-            href="https://twitter.com/TwitterJP?ref_src=twsrc%5Etfw"
-          >
-            Tweets by TwitterJP
-          </Link>
-          <script async src="https://platform.twitter.com/widgets.js"></script>
+          <TwitterTimeline />
         </section>
       </div>
       <div className={styles.under}>
-        <p className={styles.copyright}>&copy; Travel &amp; Blog</p>
+        <p className={styles.copyright}>&copy; TAKA Blog</p>
       </div>
     </footer>
   );

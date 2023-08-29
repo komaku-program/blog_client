@@ -7,7 +7,6 @@ import styles from "@/styles/Home.module.css";
 import Header from "@/components/Header/index";
 import Pickup from "@/components/Pickup/index";
 import Footer from "@/components/Footer/index";
-import Container from "@/components/Container";
 import UniversalContainer from "@/components/UniversalContainer";
 
 type Props = {

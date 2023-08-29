@@ -12,7 +12,7 @@ const Pickup = () => {
             className={styles.image}
             src="/img/working.jpg"
             alt="このブログの仕様について"
-            width="500"
+            width="800"
             height="200"
           />
         </Link>
@@ -28,7 +28,7 @@ const Pickup = () => {
             className={styles.image}
             src="/img/programmer.png"
             alt="学習履歴"
-            width="500"
+            width="800"
             height="200"
           />
         </Link>
@@ -44,7 +44,7 @@ const Pickup = () => {
             className={styles.image}
             src="/img/climbing.jpg"
             alt="求職活動について"
-            width="500"
+            width="800"
             height="200"
           />
         </Link>
