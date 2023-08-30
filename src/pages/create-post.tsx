@@ -13,7 +13,7 @@ const CreatePost = () => {
     e.preventDefault();
 
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/posts`, {
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/posts`, {
         title: title,
         content: content,
         thumbnailUrl: thumbnailUrl, // サムネイル画像の URL を使って投稿
