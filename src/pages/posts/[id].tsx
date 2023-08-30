@@ -13,7 +13,7 @@ type Props = {
 
 export async function getStaticPaths() {
   // ここにエラーハンドリングを追加
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/posts`);
   if (!res.ok) {
     console.error(`API response error: ${res.statusText}`);
     throw new Error(`Failed to fetch posts: ${res.statusText}`);
@@ -33,7 +33,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }: { params: { id: string } }) {
   // ここにもエラーハンドリングを追加
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/posts/${params.id}`
+    `${process.env.NEXT_PUBLIC_API_URL}/api/v1/posts/${params.id}`
   );
   if (!res.ok) {
     console.error(`API response error: ${res.statusText}`);
