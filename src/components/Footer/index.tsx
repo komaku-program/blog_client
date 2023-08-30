@@ -18,7 +18,7 @@ const Footer = () => {
           <ul className={styles.about_list}>
             <li>
               <div className={styles.readmore}>
-                <Link href="#">プロフィール詳細</Link>
+                <Link href="/posts/7">プロフィール詳細</Link>
               </div>
             </li>
           </ul>

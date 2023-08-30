@@ -7,7 +7,7 @@ const Side = () => {
   return (
     <aside className={styles.sidebar}>
       <section className={styles.author}>
-        <Link href="#">
+        <Link href="/posts/7">
           <Image
             src="/img/IMG_5771 2.JPG"
             alt="プロフィール写真"
@@ -23,7 +23,7 @@ const Side = () => {
           しかし2023年7月に会社の都合で内定取り消しとなってしまったため、転職活動を再開しています。
         </p>
         <div className={styles.readmore}>
-          <Link href="#">プロフィール詳細</Link>
+          <Link href="/posts/7">プロフィール詳細</Link>
         </div>
       </section>
 
