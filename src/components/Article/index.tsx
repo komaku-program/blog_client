@@ -42,7 +42,7 @@ const Article = ({ post, isFullText }: Props) => {
   const router = useRouter();
   const handleDelete = async (postId: string) => {
     try {
-      await axios.delete(`http://localhost:3001/api/v1/posts/${postId}`);
+      await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/posts/${postId}`);
       // 今後リロードではなく、non displayなどにすることを検討
       router.reload();
     } catch (err) {
@@ -65,7 +65,7 @@ const Article = ({ post, isFullText }: Props) => {
           className={styles.image}
           src={
             post.thumbnail
-              ? `http://localhost:3001${post.thumbnail}`
+              ? `${process.env.NEXT_PUBLIC_API_URL}${post.thumbnail}`
               : "/img/default_image.jpeg"
           }
           alt="サムネイル画像"

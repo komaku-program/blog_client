@@ -18,9 +18,7 @@ const Footer = () => {
           <ul className={styles.about_list}>
             <li>
               <div className={styles.readmore}>
-                <Link href="http://localhost:3000/posts/64">
-                  プロフィール詳細
-                </Link>
+                <Link href="#">プロフィール詳細</Link>
               </div>
             </li>
           </ul>

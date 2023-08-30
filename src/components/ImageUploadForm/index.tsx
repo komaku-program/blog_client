@@ -33,7 +33,7 @@ const ImageUploadForm = ({ setThumbnailUrl }: ImageUploadFormProps) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/v1/uploads",
+        `${process.env.NEXT_PUBLIC_API_URL}/uploads`,
         formData,
         {
           headers: {

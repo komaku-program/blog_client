@@ -10,7 +10,7 @@ type Props = {
 export async function getServerSideProps(context: any) {
   const id = context.params.id;
 
-  const res = await fetch(`http://localhost:3001/api/v1/posts/${id}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts/${id}`);
   const post = await res.json();
 
   return {
@@ -30,7 +30,7 @@ const EditPost = ({ post }: Props) => {
     e.preventDefault();
 
     try {
-      await axios.put(`http://localhost:3001/api/v1/posts/${post.id}`, {
+      await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/posts/${post.id}`, {
         title: title,
         content: content,
       });

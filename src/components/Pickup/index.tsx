@@ -9,7 +9,7 @@ const Pickup = () => {
       <article>
         <Link
           href={{
-            pathname: "http://localhost:3000/posts/67",
+            pathname: "#",
             query: { from: "pickup" },
           }}
         >
@@ -25,7 +25,7 @@ const Pickup = () => {
         <div className={styles.readmore}>
           <Link
             href={{
-              pathname: "http://localhost:3000/posts/67",
+              pathname: "#",
               query: { from: "pickup" },
             }}
           >
@@ -37,7 +37,7 @@ const Pickup = () => {
       <article>
         <Link
           href={{
-            pathname: "http://localhost:3000/posts/68#",
+            pathname: "#",
             query: { from: "pickup" },
           }}
         >
@@ -53,7 +53,7 @@ const Pickup = () => {
         <div className={styles.readmore}>
           <Link
             href={{
-              pathname: "http://localhost:3000/posts/68#",
+              pathname: "#",
               query: { from: "pickup" },
             }}
           >
@@ -65,7 +65,7 @@ const Pickup = () => {
       <article>
         <Link
           href={{
-            pathname: "http://localhost:3000/posts/69",
+            pathname: "#",
             query: { from: "pickup" },
           }}
         >
@@ -81,7 +81,7 @@ const Pickup = () => {
         <div className={styles.readmore}>
           <Link
             href={{
-              pathname: "http://localhost:3000/posts/69",
+              pathname: "#",
               query: { from: "pickup" },
             }}
           >
