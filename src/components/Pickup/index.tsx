@@ -7,23 +7,40 @@ const Pickup = () => {
   return (
     <div id="pickup" className={`${styles.pickup} ${styles.wrapper}`}>
       <article>
-        <Link href="#">
+        <Link
+          href={{
+            pathname: "http://localhost:3000/posts/67",
+            query: { from: "pickup" },
+          }}
+        >
           <Image
             className={styles.image}
             src="/img/working.jpg"
-            alt="このブログの仕様について"
+            alt="このブログの使用技術について"
             width="800"
             height="200"
           />
         </Link>
-        <h2 className={styles.article_title}>このブログの仕様について</h2>
+        <h2 className={styles.article_title}>このブログの使用技術について</h2>
         <div className={styles.readmore}>
-          <Link href="#">READ MORE</Link>
+          <Link
+            href={{
+              pathname: "http://localhost:3000/posts/67",
+              query: { from: "pickup" },
+            }}
+          >
+            READ MORE
+          </Link>
         </div>
       </article>
 
       <article>
-        <Link href="#">
+        <Link
+          href={{
+            pathname: "http://localhost:3000/posts/68#",
+            query: { from: "pickup" },
+          }}
+        >
           <Image
             className={styles.image}
             src="/img/programmer.png"
@@ -34,12 +51,24 @@ const Pickup = () => {
         </Link>
         <h2 className={styles.article_title}>学習履歴</h2>
         <div className={styles.readmore}>
-          <Link href="#">READ MORE</Link>
+          <Link
+            href={{
+              pathname: "http://localhost:3000/posts/68#",
+              query: { from: "pickup" },
+            }}
+          >
+            READ MORE
+          </Link>
         </div>
       </article>
 
       <article>
-        <Link href="#">
+        <Link
+          href={{
+            pathname: "http://localhost:3000/posts/69",
+            query: { from: "pickup" },
+          }}
+        >
           <Image
             className={styles.image}
             src="/img/climbing.jpg"
@@ -50,7 +79,14 @@ const Pickup = () => {
         </Link>
         <h2 className={styles.article_title}>求職活動について</h2>
         <div className={styles.readmore}>
-          <Link href="#">READ MORE</Link>
+          <Link
+            href={{
+              pathname: "http://localhost:3000/posts/69",
+              query: { from: "pickup" },
+            }}
+          >
+            READ MORE
+          </Link>
         </div>
       </article>
     </div>

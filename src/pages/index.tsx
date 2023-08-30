@@ -1,9 +1,5 @@
 import { Post } from "@/types";
-import axios from "axios";
 import Head from "next/head";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import styles from "@/styles/Home.module.css";
 import Header from "@/components/Header/index";
 import Pickup from "@/components/Pickup/index";
 import Footer from "@/components/Footer/index";
@@ -25,17 +21,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ posts }: Props) {
-  const router = useRouter();
-  const handleDelete = async (postId: string) => {
-    try {
-      await axios.delete(`http://localhost:3001/api/v1/posts/${postId}`);
-      // 今後リロードではなく、non displayなどにすることを検討
-      router.reload();
-    } catch (err) {
-      alert("投稿に失敗しました");
-    }
-  };
-
   return (
     <div className="main_content">
       <Head>

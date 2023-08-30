@@ -10,15 +10,17 @@ const Footer = () => {
         <section className={styles.item}>
           <h3 className={styles.footer_title}>About me</h3>
           <p className={styles.profile}>
-            これまで8年間、医療・福祉の分野で看護師・保育士として働いていました。
+            これまで7年間、医療・福祉の分野で看護師・保育士として働いていました。
             将来性があり、日々多くの学びを得ることができる分野で働きたいと思い、2022年4月よりプログラミングの学習を開始しました。
-            同年10月にWeb系エンジニアとしてフルリモートの会社に内定をいただき、家庭の事情で約半年インターンとして働きました。
+            同年10月にWeb系エンジニアとしてフルリモートの会社に内定をいただき、約半年間インターンとして働きました。
             しかし2023年7月に会社の都合で内定取り消しとなってしまったため、転職活動を再開しています。
           </p>
           <ul className={styles.about_list}>
             <li>
               <div className={styles.readmore}>
-                <Link href="#">プロフィール詳細</Link>
+                <Link href="http://localhost:3000/posts/64">
+                  プロフィール詳細
+                </Link>
               </div>
             </li>
           </ul>

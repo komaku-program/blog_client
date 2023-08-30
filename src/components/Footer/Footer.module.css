@@ -104,9 +104,6 @@
   line-height: 1.6;
 }
 
-.twitter_timeline {
-}
-
 @media screen and (max-width: 767px) {
   .footer .content {
     flex-direction: column;
