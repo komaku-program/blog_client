@@ -65,7 +65,7 @@ const Article = ({ post, isFullText }: Props) => {
           className={styles.image}
           src={
             post.thumbnail
-              ? `${process.env.NEXT_PUBLIC_API_URL}/${post.thumbnail}`
+              ? `${process.env.NEXT_PUBLIC_API_URL}${post.thumbnail}`
               : "/img/default_image.jpeg"
           }
           alt="サムネイル画像"
