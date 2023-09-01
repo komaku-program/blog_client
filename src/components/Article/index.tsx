@@ -95,10 +95,10 @@ const Article = ({ post, isFullText }: Props) => {
       <div className={styles.readmore}>
         {!isFullText && <Link href={`/posts/${post.id}`}>READ MORE</Link>}
       </div>
-      {/* <Link href={`edit-post/${post.id}`}>
+      <Link href={`edit-post/${post.id}`}>
         <button>Edit</button>
       </Link>
-      <button onClick={() => handleDelete(post.id)}>Delete</button> */}
+      <button onClick={() => handleDelete(post.id)}>Delete</button>
     </article>
   );
 };

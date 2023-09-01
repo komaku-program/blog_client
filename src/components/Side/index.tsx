@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "@/components/Side/Side.module.css";
+import axios from "axios";
 
-const Side = () => {
+interface ArchiveItem {
+  month: string;
+  post_count: number;
+}
+
+interface SideProps {
+  setFilterMonth: (month: string) => void;
+}
+
+const Side: React.FC<SideProps> = ({ setFilterMonth }) => {
+  const [archiveData, setArchiveData] = useState<ArchiveItem[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await axios.get<ArchiveItem[]>(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/posts/archive`
+      );
+      setArchiveData(res.data);
+    };
+    fetchData();
+  }, []);
+
   return (
     <aside className={styles.sidebar}>
       <section className={styles.author}>
@@ -25,6 +47,19 @@ const Side = () => {
         <div className={styles.readmore}>
           <Link href="/posts/7">プロフィール詳細</Link>
         </div>
+      </section>
+
+      <section className={styles.archive}>
+        <h3 className={styles.side_title}>Archive</h3>
+        <ul>
+          {archiveData.map((item, index) => (
+            <Link href="#">
+              <li key={index} onClick={() => setFilterMonth(item.month)}>
+                {item.month} ({item.post_count})
+              </li>
+            </Link>
+          ))}
+        </ul>
       </section>
 
       {/* <section className={styles.ranking}>
@@ -70,57 +105,6 @@ const Side = () => {
             </h4>
           </Link>
         </article>
-      </section>
-
-      <section className={styles.archive}>
-        <h3 className={styles.side_title}>Archive</h3>
-        <ul>
-          <li>
-            <Link href="#">XXXX年XX月</Link>(XX)
-          </li>
-          <li>
-            <Link href="#">XXXX年XX月</Link>(XX)
-          </li>
-          <li>
-            <Link href="#">XXXX年XX月</Link>(XX)
-          </li>
-          <li>
-            <Link href="#">XXXX年XX月</Link>(XX)
-          </li>
-          <li>
-            <Link href="#">XXXX年XX月</Link>(XX)
-          </li>
-          <li>
-            <Link href="#">XXXX年XX月</Link>(XX)
-          </li>
-          <li>
-            <Link href="#">XXXX年XX月</Link>(XX)
-          </li>
-          <li>
-            <Link href="#">XXXX年XX月</Link>(XX)
-          </li>
-          <li>
-            <Link href="#">XXXX年XX月</Link>(XX)
-          </li>
-          <li>
-            <Link href="#">XXXX年XX月</Link>(XX)
-          </li>
-          <li>
-            <Link href="#">XXXX年XX月</Link>(XX)
-          </li>
-          <li>
-            <Link href="#">XXXX年XX月</Link>(XX)
-          </li>
-          <li>
-            <Link href="#">XXXX年XX月</Link>(XX)
-          </li>
-          <li>
-            <Link href="#">XXXX年XX月</Link>(XX)
-          </li>
-          <li>
-            <Link href="#">XXXX年XX月</Link>(XX)
-          </li>
-        </ul>
       </section> */}
     </aside>
   );

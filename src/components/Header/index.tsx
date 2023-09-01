@@ -31,9 +31,9 @@ const Header = () => {
           <li>
             <Link href="#">自分の投稿</Link>
           </li> */}
-          {/* <li>
+          <li>
             <Link href="/create-post">新規投稿</Link>
-          </li> */}
+          </li>
         </ul>
       </nav>
     </div>
