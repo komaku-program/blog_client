@@ -3,3 +3,18 @@
   margin: 0 auto;
   padding: 20px;
 }
+
+.create_section {
+  padding-top: 150px;
+  text-align: center;
+}
+
+.form {
+  margin: 30px;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+  position: relative;
+}
