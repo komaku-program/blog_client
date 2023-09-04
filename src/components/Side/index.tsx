@@ -53,8 +53,8 @@ const Side: React.FC<SideProps> = ({ setFilterMonth }) => {
         <h3 className={styles.side_title}>Archive</h3>
         <ul>
           {archiveData.map((item, index) => (
-            <Link href="#">
-              <li key={index} onClick={() => setFilterMonth(item.month)}>
+            <Link href="#" key={index}>
+              <li onClick={() => setFilterMonth(item.month)}>
                 {item.month} ({item.post_count})
               </li>
             </Link>
