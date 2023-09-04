@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "@/components/Header/Header.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import LoginModal from "@/components/LoginModal/index";
+import SignupModal from "../SignupModal";
 
 const Header = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [isSignInModal, setIsSignInModal] = useState(false);
+
+  const handleOpenModal = (signIn: boolean = false) => {
+    setIsSignInModal(signIn);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div className={styles.header}>
       <h1 className={`${styles.site_title} ${styles.wrapper}`}>
@@ -34,8 +48,20 @@ const Header = () => {
           <li>
             <Link href="/create-post">新規投稿</Link>
           </li>
+          <li>
+            <button onClick={() => handleOpenModal()}>ログイン</button>
+          </li>
         </ul>
       </nav>
+      {showModal &&
+        (isSignInModal ? (
+          <SignupModal handleCloseModal={handleCloseModal} />
+        ) : (
+          <LoginModal
+            handleCloseModal={handleCloseModal}
+            handleOpenSignInModal={() => handleOpenModal(true)}
+          />
+        ))}
     </div>
   );
 };
