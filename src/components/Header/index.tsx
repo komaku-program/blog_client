@@ -7,10 +7,11 @@ import SignupModal from "../SignupModal";
 
 const Header = () => {
   const [showModal, setShowModal] = useState(false);
-  const [isSignInModal, setIsSignInModal] = useState(false);
+  const [isSignupModal, setIsSignupModal] = useState(false);
 
-  const handleOpenModal = (signIn: boolean = false) => {
-    setIsSignInModal(signIn);
+  const handleOpenModal = (signup: boolean = false) => {
+    console.log("Setting isLoginModal and showModal");
+    setIsSignupModal(signup);
     setShowModal(true);
   };
 
@@ -54,12 +55,15 @@ const Header = () => {
         </ul>
       </nav>
       {showModal &&
-        (isSignInModal ? (
-          <SignupModal handleCloseModal={handleCloseModal} />
+        (isSignupModal ? (
+          <SignupModal
+            handleCloseModal={handleCloseModal}
+            handleOpenSignupModal={() => handleOpenModal(false)}
+          />
         ) : (
           <LoginModal
             handleCloseModal={handleCloseModal}
-            handleOpenSignInModal={() => handleOpenModal(true)}
+            handleOpenSignupModal={() => handleOpenModal(true)}
           />
         ))}
     </div>

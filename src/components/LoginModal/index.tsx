@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import Link from "next/link";
 
-// あとで修正
 type FormInputs = {
   email: string;
   password: string;
@@ -12,12 +11,12 @@ type FormInputs = {
 
 type LoginModalProps = {
   handleCloseModal: () => void;
-  handleOpenSignInModal: () => void;
+  handleOpenSignupModal: () => void;
 };
 
 const LoginModal: React.FC<LoginModalProps> = ({
   handleCloseModal,
-  handleOpenSignInModal,
+  handleOpenSignupModal,
 }) => {
   const {
     register,
@@ -32,13 +31,33 @@ const LoginModal: React.FC<LoginModalProps> = ({
   // 修正必要
   const onSubmit: SubmitHandler<FormInputs> = async (data) => {
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/posts`, {
-        title: data.email,
-        content: data.password,
-      });
+      // ログインAPIを呼び出す
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/users/sign_in`,
+        {
+          user: {
+            email: data.email,
+            password: data.password,
+          },
+        },
+        {
+          withCredentials: true, // これを追加
+        }
+      );
+      // Contextを使用してここを変更する
+      // if (response.status === 200) {
+      //   handleLoginSuccess();
+      // }
+
+      console.log(response.data); // ログイン成功時の処理
+      handleCloseModal();
+      // 成功したらホームページにリダイレクト
       router.push("/");
     } catch (err) {
-      alert("投稿に失敗しました");
+      if (axios.isAxiosError(err)) {
+        console.log(err.response?.data); // ログイン失敗時の処理
+      }
+      alert("ログインに失敗しました");
     }
   };
 
@@ -75,7 +94,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
 
           <button type="submit">ログイン</button>
         </form>
-        <Link href="#" onClick={handleOpenSignInModal}>
+        <Link href="#" onClick={handleOpenSignupModal}>
           初めての方はこちら
         </Link>
         <br />

@@ -9,9 +9,13 @@ type FormInputs = User & { password_confirmation: string };
 
 type LoginModalProps = {
   handleCloseModal: () => void;
+  handleOpenSignupModal: () => void;
 };
 
-const SignupModal: React.FC<LoginModalProps> = ({ handleCloseModal }) => {
+const SignupModal: React.FC<LoginModalProps> = ({
+  handleCloseModal,
+  handleOpenSignupModal,
+}) => {
   const {
     register,
     handleSubmit,
@@ -32,9 +36,12 @@ const SignupModal: React.FC<LoginModalProps> = ({ handleCloseModal }) => {
           password_confirmation: data.password_confirmation,
         },
       });
-      router.push("/"); // 成功したらリダイレクト
+      console.log("Closing SignupModal...");
+      handleOpenSignupModal();
+      console.log("Opening LoginModal...");
     } catch (err) {
       alert("ユーザー登録に失敗しました");
+      console.error("API Error:", err);
     }
   };
 
@@ -50,6 +57,7 @@ const SignupModal: React.FC<LoginModalProps> = ({ handleCloseModal }) => {
           <div>
             <label>ユーザー名</label>
             <input
+              autoComplete="off"
               type="text"
               {...register("name", {
                 required: "ユーザー名は必須です",
@@ -72,6 +80,7 @@ const SignupModal: React.FC<LoginModalProps> = ({ handleCloseModal }) => {
           <div>
             <label>PW</label>
             <input
+              autoComplete="off"
               type="password"
               {...register("password", {
                 required: "パスワードは必須です",
