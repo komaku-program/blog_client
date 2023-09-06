@@ -4,13 +4,19 @@ import Image from "next/image";
 import Link from "next/link";
 import LoginModal from "@/components/LoginModal/index";
 import SignupModal from "../SignupModal";
+import { useLogin } from "@/components/LoginContext";
 
 const Header = () => {
   const [showModal, setShowModal] = useState(false);
   const [isSignupModal, setIsSignupModal] = useState(false);
 
+  const { isLoggedIn, handleLogout } = useLogin();
+
+  const handleLogoutClick = () => {
+    handleLogout();
+  };
+
   const handleOpenModal = (signup: boolean = false) => {
-    console.log("Setting isLoginModal and showModal");
     setIsSignupModal(signup);
     setShowModal(true);
   };
@@ -50,7 +56,11 @@ const Header = () => {
             <Link href="/create-post">新規投稿</Link>
           </li>
           <li>
-            <button onClick={() => handleOpenModal()}>ログイン</button>
+            {isLoggedIn ? (
+              <button onClick={handleLogoutClick}>ログアウト</button>
+            ) : (
+              <button onClick={() => handleOpenModal()}>ログイン</button>
+            )}
           </li>
         </ul>
       </nav>

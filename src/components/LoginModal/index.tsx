@@ -3,6 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Link from "next/link";
+import { useLogin } from "@/components/LoginContext";
 
 type FormInputs = {
   email: string;
@@ -28,7 +29,8 @@ const LoginModal: React.FC<LoginModalProps> = ({
 
   const router = useRouter();
 
-  // 修正必要
+  const { handleLoginSuccess } = useLogin();
+
   const onSubmit: SubmitHandler<FormInputs> = async (data) => {
     try {
       // ログインAPIを呼び出す
@@ -38,16 +40,18 @@ const LoginModal: React.FC<LoginModalProps> = ({
           user: {
             email: data.email,
             password: data.password,
+            remember_me: true,
           },
         },
         {
-          withCredentials: true, // これを追加
+          withCredentials: true,
         }
       );
-      // Contextを使用してここを変更する
-      // if (response.status === 200) {
-      //   handleLoginSuccess();
-      // }
+
+      // ログイン成功時の処理
+      if (response.status === 200) {
+        handleLoginSuccess();
+      }
 
       console.log(response.data); // ログイン成功時の処理
       handleCloseModal();
