@@ -61,7 +61,7 @@ export const LoginProvider: React.FC<LoginProviderProps> = ({ children }) => {
     };
 
     checkLoggedInStatus();
-  }, []); // 空の依存配列を指定して、この副作用をコンポーネントがマウントされたときに一度だけ実行する
+  }, []);
 
   const handleLoginSuccess = (
     userIdFromResponse: string | number,
@@ -86,7 +86,6 @@ export const LoginProvider: React.FC<LoginProviderProps> = ({ children }) => {
       }
     } catch (error) {
       console.error("Failed to logout:", error);
-      // その他のエラーハンドリング
     }
   };
 

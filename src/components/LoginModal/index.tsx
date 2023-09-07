@@ -34,13 +34,11 @@ const LoginModal: React.FC<LoginModalProps> = ({
 
   const handleGuestLogin = async () => {
     try {
-      // ゲスト用のデータを設定
       const guestData = {
         email: "gestlogin@gmail.com",
         password: "gestlogin",
       };
 
-      // ログインAPIを呼び出す
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/users/sign_in`,
         {
@@ -70,7 +68,6 @@ const LoginModal: React.FC<LoginModalProps> = ({
 
   const onSubmit: SubmitHandler<FormInputs> = async (data) => {
     try {
-      // ログインAPIを呼び出す
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/users/sign_in`,
         {
@@ -85,18 +82,16 @@ const LoginModal: React.FC<LoginModalProps> = ({
         }
       );
 
-      // ログイン成功時の処理
       if (response.status === 200) {
         handleLoginSuccess(response.data.user.id, response.data.user.name);
       }
 
-      console.log(response.data); // ログイン成功時の処理
+      console.log(response.data);
       handleCloseModal();
-      // 成功したらホームページにリダイレクト
       router.push("/");
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        console.log(err.response?.data); // ログイン失敗時の処理
+        console.log(err.response?.data);
       }
       alert("ログインに失敗しました");
     }

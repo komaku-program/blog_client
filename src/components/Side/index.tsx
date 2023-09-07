@@ -61,51 +61,7 @@ const Side: React.FC<SideProps> = ({ setFilterMonth }) => {
           ))}
         </ul>
       </section>
-
-      {/* <section className={styles.ranking}>
-        <h3 className={styles.side_title}>Ranking</h3>
-        <article>
-          <Link href="#">
-            <Image
-              src="/img/cooltext441555946653111.png"
-              alt="たかブログ"
-              width="200"
-              height="64"
-            />
-            <h4 className={styles.article_title}>
-              タイトルテキストテキストテキストテキストテキストテキスト
-            </h4>
-          </Link>
-        </article>
-
-        <article>
-          <Link href="#">
-            <Image
-              src="/img/cooltext441555946653111.png"
-              alt="たかブログ"
-              width="200"
-              height="64"
-            />
-            <h4 className={styles.article_title}>
-              タイトルテキストテキストテキストテキストテキストテキスト
-            </h4>
-          </Link>
-        </article>
-
-        <article>
-          <Link href="#">
-            <Image
-              src="/img/cooltext441555946653111.png"
-              alt="たかブログ"
-              width="200"
-              height="64"
-            />
-            <h4 className={styles.article_title}>
-              タイトルテキストテキストテキストテキストテキストテキスト
-            </h4>
-          </Link>
-        </article>
-      </section> */}
+      {/* 後日ランキングを実装 */}
     </aside>
   );
 };
