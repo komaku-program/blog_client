@@ -6,6 +6,7 @@ import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Linkify from "react-linkify";
+import { useLogin } from "@/components/LoginContext";
 
 type Props = {
   post: Post;
@@ -13,6 +14,7 @@ type Props = {
 };
 
 const Article = ({ post, isFullText }: Props) => {
+  const { isLoggedIn, userId } = useLogin();
   const scrollRouter = useRouter();
   // useEffectが2回発火してしまい、autoの処理が適切に行われない問題があり修正が必要
   useEffect(() => {
@@ -95,10 +97,16 @@ const Article = ({ post, isFullText }: Props) => {
       <div className={styles.readmore}>
         {!isFullText && <Link href={`/posts/${post.id}`}>READ MORE</Link>}
       </div>
-      <Link href={`edit-post/${post.id}`}>
-        <button>Edit</button>
-      </Link>
-      <button onClick={() => handleDelete(post.id)}>Delete</button>
+
+      {/* 今後実装 */}
+      {/* {isLoggedIn && userId === post.user_id && (
+        <div className={styles.buttons}>
+          <Link href={`edit-post/${post.id}`}>
+            <button>Edit</button>
+          </Link>
+          <button onClick={() => handleDelete(post.id)}>Delete</button>
+        </div>
+      )} */}
     </article>
   );
 };

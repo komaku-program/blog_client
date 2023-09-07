@@ -12,7 +12,6 @@ type Props = {
 };
 
 export async function getStaticPaths() {
-  // ここにエラーハンドリングを追加
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/posts`);
   if (!res.ok) {
     console.error(`API response error: ${res.statusText}`);
