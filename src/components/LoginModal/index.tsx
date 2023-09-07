@@ -31,6 +31,42 @@ const LoginModal: React.FC<LoginModalProps> = ({
 
   const { handleLoginSuccess } = useLogin();
 
+  const handleGuestLogin = async () => {
+    try {
+      // ゲスト用のデータを設定
+      const guestData = {
+        email: "gestlogin@gmail.com",
+        password: "gestlogin",
+      };
+
+      // ログインAPIを呼び出す
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/users/sign_in`,
+        {
+          user: {
+            email: guestData.email,
+            password: guestData.password,
+            remember_me: true,
+          },
+        },
+        {
+          withCredentials: true,
+        }
+      );
+      if (response.status === 200) {
+        handleLoginSuccess(response.data.user.id, response.data.user.name);
+      }
+
+      handleCloseModal();
+      router.push("/");
+    } catch (err) {
+      if (axios.isAxiosError(err)) {
+        console.log(err.response?.data);
+      }
+      alert("ゲストログインに失敗しました");
+    }
+  };
+
   const onSubmit: SubmitHandler<FormInputs> = async (data) => {
     try {
       // ログインAPIを呼び出す
@@ -102,7 +138,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
           初めての方はこちら
         </Link>
         <br />
-        <Link href="#">ゲストログイン</Link>
+        <button onClick={handleGuestLogin}>ゲストログイン</button>
         <br />
         <button onClick={handleCloseModal}>閉じる</button>
       </div>
