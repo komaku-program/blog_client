@@ -9,7 +9,12 @@ import axios from "axios";
 
 interface LoginContextProps {
   isLoggedIn: boolean;
-  handleLoginSuccess: () => void;
+  userId: string | null;
+  userName: string | null;
+  handleLoginSuccess: (
+    userIdFromResponse: string | number,
+    name: string
+  ) => void;
   handleLogout: () => void;
 }
 
@@ -29,9 +34,10 @@ interface LoginProviderProps {
 
 export const LoginProvider: React.FC<LoginProviderProps> = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userId, setUserId] = useState<string | null>(null);
+  const [userName, setUserName] = useState<string | null>(null);
 
   useEffect(() => {
-    // この部分でサーバーに問い合わせる
     const checkLoggedInStatus = async () => {
       try {
         const response = await axios.get(
@@ -43,8 +49,11 @@ export const LoginProvider: React.FC<LoginProviderProps> = ({ children }) => {
 
         if (response.status === 200 && response.data.loggedIn) {
           setIsLoggedIn(true);
+          setUserId(response.data.userId);
+          setUserName(response.data.user.name);
         } else {
           setIsLoggedIn(false);
+          setUserId(null);
         }
       } catch (error) {
         console.error("Failed to check login status:", error);
@@ -54,8 +63,13 @@ export const LoginProvider: React.FC<LoginProviderProps> = ({ children }) => {
     checkLoggedInStatus();
   }, []); // 空の依存配列を指定して、この副作用をコンポーネントがマウントされたときに一度だけ実行する
 
-  const handleLoginSuccess = () => {
+  const handleLoginSuccess = (
+    userIdFromResponse: string | number,
+    name: string
+  ) => {
     setIsLoggedIn(true);
+    setUserId(String(userIdFromResponse));
+    setUserName(name);
   };
 
   const handleLogout = async () => {
@@ -68,7 +82,7 @@ export const LoginProvider: React.FC<LoginProviderProps> = ({ children }) => {
       );
       if (response.status === 200) {
         setIsLoggedIn(false);
-        // その他のローカルの状態クリア処理（必要であれば）
+        setUserId(null);
       }
     } catch (error) {
       console.error("Failed to logout:", error);
@@ -78,7 +92,7 @@ export const LoginProvider: React.FC<LoginProviderProps> = ({ children }) => {
 
   return (
     <LoginContext.Provider
-      value={{ isLoggedIn, handleLoginSuccess, handleLogout }}
+      value={{ isLoggedIn, userId, userName, handleLoginSuccess, handleLogout }}
     >
       {children}
     </LoginContext.Provider>

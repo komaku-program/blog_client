@@ -61,6 +61,24 @@
   text-align: center;
 }
 
+.logout {
+  background-color: rgb(250, 176, 97);
+  font-weight: bold;
+}
+
+.login {
+  background-color: rgb(122, 229, 250);
+  font-weight: bold;
+}
+
+.user {
+  color: #fff;
+}
+
+.user_name {
+  font-size: 15px;
+}
+
 @media screen and (max-width: 767px) {
   .navi {
     overflow-x: scroll;

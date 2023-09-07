@@ -10,7 +10,7 @@ const Header = () => {
   const [showModal, setShowModal] = useState(false);
   const [isSignupModal, setIsSignupModal] = useState(false);
 
-  const { isLoggedIn, handleLogout } = useLogin();
+  const { isLoggedIn, userName, handleLogout } = useLogin();
 
   const handleLogoutClick = () => {
     handleLogout();
@@ -52,14 +52,32 @@ const Header = () => {
           <li>
             <Link href="#">自分の投稿</Link>
           </li> */}
-          <li>
-            <Link href="/create-post">新規投稿</Link>
-          </li>
+          {isLoggedIn && (
+            <li>
+              <Link href="/create-post">新規投稿</Link>
+            </li>
+          )}
           <li>
             {isLoggedIn ? (
-              <button onClick={handleLogoutClick}>ログアウト</button>
+              <button className={styles.logout} onClick={handleLogoutClick}>
+                ログアウト
+              </button>
             ) : (
-              <button onClick={() => handleOpenModal()}>ログイン</button>
+              <button
+                className={styles.login}
+                onClick={() => handleOpenModal()}
+              >
+                ログイン
+              </button>
+            )}
+          </li>
+          <li className={styles.user}>
+            {isLoggedIn && (
+              <p>
+                こんにちは &nbsp;
+                <span className={styles.user_name}>{`${userName}`}</span>&nbsp;
+                さん
+              </p>
             )}
           </li>
         </ul>

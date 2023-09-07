@@ -50,7 +50,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
 
       // ログイン成功時の処理
       if (response.status === 200) {
-        handleLoginSuccess();
+        handleLoginSuccess(response.data.user.id, response.data.user.name);
       }
 
       console.log(response.data); // ログイン成功時の処理

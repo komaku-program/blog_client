@@ -6,6 +6,7 @@ import ImageUploadForm from "@/components/ImageUploadForm/index";
 import Head from "next/head";
 import Header from "@/components/Header/index";
 import styles from "@/styles/Home.module.css";
+import { useLogin } from "@/components/LoginContext";
 
 type FormInputs = {
   title: string;
@@ -23,6 +24,7 @@ const CreatePost: React.FC = () => {
 
   const [thumbnailUrl, setThumbnailUrl] = useState("");
   const router = useRouter();
+  const { userId } = useLogin();
 
   const onSubmit: SubmitHandler<FormInputs> = async (data) => {
     try {
@@ -30,6 +32,7 @@ const CreatePost: React.FC = () => {
         title: data.title,
         content: data.content,
         thumbnailUrl: thumbnailUrl,
+        user_id: userId,
       });
       router.push("/");
     } catch (err) {
