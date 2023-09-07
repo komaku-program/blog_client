@@ -99,14 +99,14 @@ const Article = ({ post, isFullText }: Props) => {
       </div>
 
       {/* 今後実装 */}
-      {/* {isLoggedIn && userId === post.user_id && (
-        <div className={styles.buttons}>
-          <Link href={`edit-post/${post.id}`}>
-            <button>Edit</button>
-          </Link>
-          <button onClick={() => handleDelete(post.id)}>Delete</button>
-        </div>
-      )} */}
+      {/* {isLoggedIn && userId === post.user_id && ( */}
+      <div className={styles.buttons}>
+        <Link href={`edit-post/${post.id}`}>
+          <button>Edit</button>
+        </Link>
+        <button onClick={() => handleDelete(post.id)}>Delete</button>
+      </div>
+      {/* )} */}
     </article>
   );
 };
