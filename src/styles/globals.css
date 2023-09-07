@@ -28,6 +28,7 @@ a {
   text-decoration: none;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  cursor: pointer;
 }
 img {
   max-width: 100%;

@@ -2,8 +2,8 @@ import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/router";
 import axios from "axios";
-import Link from "next/link";
 import { User } from "@/types";
+import styles from "@/components/LoginModal/Modal.module.css";
 
 type FormInputs = User & { password_confirmation: string };
 
@@ -53,22 +53,26 @@ const SignupModal: React.FC<LoginModalProps> = ({
       ></div>
       <div className="modal">
         <h1>ようこそ</h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <div>
-            <label>Email</label>
+            <label className={styles.label}>Email</label>
             <input
-              autoComplete="off"
+              className={styles.input}
+              autoComplete="email"
               type="text"
               {...register("email", {
                 required: "Emailは必須です",
               })}
             />
-            {errors.email && <p>{errors.email.message}</p>}
+            {errors.email && (
+              <p className={styles.message}>{errors.email.message}</p>
+            )}
           </div>
 
           <div>
-            <label>PW</label>
+            <label className={styles.label}>&nbsp;&nbsp;PW&nbsp;&nbsp;</label>
             <input
+              className={styles.input}
               autoComplete="off"
               type="password"
               {...register("password", {
@@ -79,8 +83,9 @@ const SignupModal: React.FC<LoginModalProps> = ({
           </div>
 
           <div>
-            <label>PW(再入力)</label>
+            <label className={styles.label}>PW(再入力)</label>
             <input
+              className={styles.input}
               autoComplete="off"
               type="password"
               {...register("password_confirmation", {
@@ -90,8 +95,9 @@ const SignupModal: React.FC<LoginModalProps> = ({
             {errors.password && <p>{errors.password.message}</p>}
           </div>
           <div>
-            <label>ユーザー名</label>
+            <label className={styles.label}>&nbsp;ユーザー名&nbsp;</label>
             <input
+              className={styles.input}
               autoComplete="off"
               type="text"
               {...register("name", {
@@ -101,12 +107,13 @@ const SignupModal: React.FC<LoginModalProps> = ({
             {errors.email && <p>{errors.email.message}</p>}
           </div>
 
-          <button type="submit">サインアップ</button>
+          <button className={styles.login_button} type="submit">
+            サインアップ
+          </button>
         </form>
-        <br />
-        <Link href="#">ゲストログイン</Link>
-        <br />
-        <button onClick={handleCloseModal}>閉じる</button>
+        <button className={styles.close_button} onClick={handleCloseModal}>
+          閉じる
+        </button>
       </div>
     </div>
   );

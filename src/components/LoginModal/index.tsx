@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import Link from "next/link";
 import { useLogin } from "@/components/LoginContext";
+import styles from "@/components/LoginModal/Modal.module.css";
 
 type FormInputs = {
   email: string;
@@ -109,38 +110,56 @@ const LoginModal: React.FC<LoginModalProps> = ({
       ></div>
       <div className="modal">
         <h1>おかえりなさい</h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <div>
-            <label>Email</label>
+            <label className={styles.label}>
+              &nbsp;&nbsp;&nbsp;Email&nbsp;&nbsp;&nbsp;
+            </label>
             <input
+              className={styles.input}
               type="text"
               {...register("email", {
                 required: "Emailは必須です",
               })}
             />
-            {errors.email && <p>{errors.email.message}</p>}
+            {errors.email && (
+              <p className={styles.message}>{errors.email.message}</p>
+            )}
           </div>
 
           <div>
             <label>パスワード</label>
             <input
+              className={styles.input}
               type="password"
               {...register("password", {
                 required: "パスワードは必須です",
               })}
             />
-            {errors.password && <p>{errors.password.message}</p>}
+            {errors.password && (
+              <p className={styles.message}>{errors.password.message}</p>
+            )}
           </div>
 
-          <button type="submit">ログイン</button>
+          <button className={styles.login_button} type="submit">
+            ログイン
+          </button>
         </form>
-        <Link href="#" onClick={handleOpenSignupModal}>
+        <Link
+          className={styles.signup}
+          href="#"
+          onClick={handleOpenSignupModal}
+        >
           初めての方はこちら
         </Link>
         <br />
-        <button onClick={handleGuestLogin}>ゲストログイン</button>
+        <button className={styles.guest_button} onClick={handleGuestLogin}>
+          ゲストログイン
+        </button>
         <br />
-        <button onClick={handleCloseModal}>閉じる</button>
+        <button className={styles.close_button} onClick={handleCloseModal}>
+          閉じる
+        </button>
       </div>
     </div>
   );
