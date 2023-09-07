@@ -4,14 +4,18 @@ import Header from "@/components/Header/index";
 import Pickup from "@/components/Pickup/index";
 import Footer from "@/components/Footer/index";
 import UniversalContainer from "@/components/UniversalContainer";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 type Props = {
   posts: Post[];
 };
 
 export async function getStaticProps() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/posts`);
-  const posts = await res.json();
+  const res = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/v1/posts`
+  );
+  const posts = res.data;
   return {
     props: {
       posts,
@@ -20,7 +24,20 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ posts }: Props) {
+export default function Home({ posts: initialPosts }: Props) {
+  const [posts, setPosts] = useState(initialPosts);
+
+  useEffect(() => {
+    const fetchNewPosts = async () => {
+      const res = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/posts`
+      );
+      setPosts(res.data);
+    };
+
+    fetchNewPosts();
+  }, []);
+
   return (
     <div className="main_content">
       <Head>
