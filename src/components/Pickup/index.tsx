@@ -15,7 +15,7 @@ const Pickup = () => {
           }}
         >
           <Image
-            className={styles.image}
+            className={style.image}
             src="/img/working.jpg"
             alt="このブログの使用技術について"
             width="800"
@@ -43,7 +43,7 @@ const Pickup = () => {
           }}
         >
           <Image
-            className={styles.image}
+            className={style.image}
             src="/img/programmer.png"
             alt="学習履歴"
             width="800"
@@ -71,7 +71,7 @@ const Pickup = () => {
           }}
         >
           <Image
-            className={styles.image}
+            className={style.image}
             src="/img/climbing.jpg"
             alt="求職活動について"
             width="800"

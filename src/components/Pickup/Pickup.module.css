@@ -47,12 +47,6 @@
   text-align: center;
 }
 
-.image {
-  object-fit: cover;
-  object-position: center;
-  position: relative;
-}
-
 @media screen and (max-width: 767px) {
   .pickup {
     flex-direction: column;
