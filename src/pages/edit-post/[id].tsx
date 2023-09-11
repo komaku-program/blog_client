@@ -21,27 +21,30 @@ type FormInputs = {
 export async function getServerSideProps(context: any) {
   const id = context.params.id;
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/v1/posts/${id}`
-  );
-  const post = await res.json();
+  try {
+    const res = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/v1/posts/${id}`
+    );
+    const post = res.data;
 
-  return {
-    props: {
-      post,
-    },
-  };
+    return {
+      props: {
+        post,
+      },
+    };
+  } catch (error) {
+    return {
+      notFound: true,
+    };
+  }
 }
-
 const EditPost = ({ post }: Props) => {
-  // 後日UseFormなるものを追加予定
-
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormInputs>({
-    mode: "onChange", // リアルタイムバリデーション
+    mode: "onChange",
     defaultValues: {
       title: post.title,
       content: post.content,

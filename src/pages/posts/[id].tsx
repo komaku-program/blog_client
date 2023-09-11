@@ -1,5 +1,6 @@
 import { Post } from "@/types";
 import { useRouter } from "next/router";
+import axios from "axios";
 import React from "react";
 import Head from "next/head";
 import Header from "@/components/Header/index";
@@ -12,40 +13,55 @@ type Props = {
 };
 
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/posts`);
-  if (!res.ok) {
-    console.error(`API response error: ${res.statusText}`);
-    throw new Error(`Failed to fetch posts: ${res.statusText}`);
+  try {
+    const res = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/v1/posts`
+    );
+    const posts: Post[] = await res.data;
+    const paths = posts.map((post) => ({
+      params: { id: post.id.toString() },
+    }));
+
+    return {
+      paths,
+      fallback: true,
+    };
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error(`API response error: ${error.message}`);
+    } else {
+      console.error("An unknown error occurred");
+    }
+    return {
+      paths: [],
+      fallback: true,
+    };
   }
-
-  const posts: Post[] = await res.json();
-  const paths = posts.map((post) => ({
-    params: { id: post.id.toString() },
-  }));
-
-  return {
-    paths,
-    fallback: true,
-  };
 }
 
 export async function getStaticProps({ params }: { params: { id: string } }) {
-  // ここにもエラーハンドリングを追加
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/v1/posts/${params.id}`
-  );
-  if (!res.ok) {
-    console.error(`API response error: ${res.statusText}`);
-    throw new Error(`Failed to fetch post: ${res.statusText}`);
+  try {
+    const res = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/v1/posts/${params.id}`
+    );
+    const post = await res.data;
+    return {
+      props: {
+        post,
+      },
+      revalidate: 60,
+    };
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error(`API response error: ${error.message}`);
+    } else {
+      console.error("An unknown error occurred");
+    }
+    return {
+      paths: [],
+      fallback: true,
+    };
   }
-
-  const post = await res.json();
-  return {
-    props: {
-      post,
-    },
-    revalidate: 60,
-  };
 }
 
 const Post = ({ post }: Props) => {
