@@ -3,7 +3,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { User } from "@/types";
-import styles from "@/components/LoginModal/Modal.module.css";
+import styles from "@/styles/Modal.module.css";
+import style from "@/styles/Home.module.css";
 
 type FormInputs = User & { password_confirmation: string };
 
@@ -48,10 +49,10 @@ const SignupModal: React.FC<LoginModalProps> = ({
   return (
     <div>
       <div
-        className="overlay"
+        className={styles.overlay}
         onClick={(e) => e.target === e.currentTarget && handleCloseModal()}
       ></div>
-      <div className="modal">
+      <div className={styles.modal}>
         <h1>ようこそ</h1>
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <div>

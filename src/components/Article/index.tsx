@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Post } from "@/types";
 import styles from "@/components/Article/Article.module.css";
+import style from "@/styles/Home.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
@@ -54,7 +55,7 @@ const Article = ({ post, isFullText }: Props) => {
     }
   };
   return (
-    <article id="article-section" className={styles.article} key={post.id}>
+    <article id="article-section" className={style.article} key={post.id}>
       <div className={styles.date_wrapper}>
         <p className={styles.create_date}>
           投稿日 {formatDate(post.created_at)}
@@ -66,7 +67,7 @@ const Article = ({ post, isFullText }: Props) => {
       </Link>
       <Link href={`/posts/${post.id}`}>
         <Image
-          className={styles.image}
+          className={style.image}
           src={
             post.thumbnail
               ? `${process.env.NEXT_PUBLIC_API_URL}${post.thumbnail}`
@@ -94,18 +95,18 @@ const Article = ({ post, isFullText }: Props) => {
           {post.content}
         </Linkify>
       </p>
-      <div className={styles.readmore}>
+      <div className={style.readmore}>
         {!isFullText && <Link href={`/posts/${post.id}`}>READ MORE</Link>}
       </div>
 
       {/* 今後実装 */}
       {/* {isLoggedIn && userId === post.user_id && ( */}
-      <div className={styles.buttons}>
+      {/* <div className={styles.buttons}>
         <Link href={`/edit-post/${post.id}`}>
           <button>Edit</button>
         </Link>
         <button onClick={() => handleDelete(post.id)}>Delete</button>
-      </div>
+      </div> */}
       {/* )} */}
     </article>
   );

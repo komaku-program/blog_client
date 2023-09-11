@@ -6,6 +6,7 @@ import Footer from "@/components/Footer/index";
 import UniversalContainer from "@/components/UniversalContainer";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import style from "@/styles/Home.module.css";
 
 type Props = {
   posts: Post[];
@@ -39,7 +40,7 @@ export default function Home({ posts: initialPosts }: Props) {
   }, []);
 
   return (
-    <div className="main_content">
+    <div className={style.main_content}>
       <Head>
         <title>たかブログ</title>
         <meta

@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "@/components/Pickup/Pickup.module.css";
+import style from "@/styles/Home.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,7 +15,7 @@ const Pickup = () => {
           }}
         >
           <Image
-            className={styles.image}
+            className={style.image}
             src="/img/working.jpg"
             alt="このブログの使用技術について"
             width="800"
@@ -22,7 +23,7 @@ const Pickup = () => {
           />
         </Link>
         <h2 className={styles.article_title}>このブログの使用技術について</h2>
-        <div className={styles.readmore}>
+        <div className={style.readmore}>
           <Link
             href={{
               pathname: "/posts/8",
@@ -42,7 +43,7 @@ const Pickup = () => {
           }}
         >
           <Image
-            className={styles.image}
+            className={style.image}
             src="/img/programmer.png"
             alt="学習履歴"
             width="800"
@@ -50,7 +51,7 @@ const Pickup = () => {
           />
         </Link>
         <h2 className={styles.article_title}>学習履歴</h2>
-        <div className={styles.readmore}>
+        <div className={style.readmore}>
           <Link
             href={{
               pathname: "/posts/9",
@@ -70,7 +71,7 @@ const Pickup = () => {
           }}
         >
           <Image
-            className={styles.image}
+            className={style.image}
             src="/img/climbing.jpg"
             alt="求職活動について"
             width="800"
@@ -78,7 +79,7 @@ const Pickup = () => {
           />
         </Link>
         <h2 className={styles.article_title}>求職活動について</h2>
-        <div className={styles.readmore}>
+        <div className={style.readmore}>
           <Link
             href={{
               pathname: "/posts/10",

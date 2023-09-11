@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "@/components/Header/Header.module.css";
+import style from "@/styles/Home.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import LoginModal from "@/components/LoginModal/index";
@@ -27,7 +28,7 @@ const Header = () => {
 
   return (
     <div className={styles.header}>
-      <h1 className={`${styles.site_title} ${styles.wrapper}`}>
+      <h1 className={`${styles.site_title} ${style.wrapper}`}>
         <Link href="/">
           <Image
             src="/img/cooltext441555946653111.png"
@@ -38,7 +39,7 @@ const Header = () => {
         </Link>
       </h1>
       <nav className={styles.navi}>
-        <ul className={styles.wrapper}>
+        <ul className={style.wrapper}>
           <li>
             <Link href="/">HOME</Link>
           </li>
