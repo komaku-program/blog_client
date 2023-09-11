@@ -99,7 +99,7 @@ const Article = ({ post, isFullText }: Props) => {
         {!isFullText && <Link href={`/posts/${post.id}`}>READ MORE</Link>}
       </div>
 
-      {/* 今後実装 */}
+      {/* ユーザー毎の投稿表示後実装 */}
       {/* {isLoggedIn && userId === post.user_id && ( */}
       {/* <div className={styles.buttons}>
         <Link href={`/edit-post/${post.id}`}>
