@@ -5,7 +5,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import ImageUploadForm from "@/components/ImageUploadForm/index";
 import Head from "next/head";
 import Header from "@/components/Header/index";
-import styles from "@/styles/Home.module.css";
+import style from "@/styles/Home.module.css";
 import { useLogin } from "@/components/LoginContext";
 
 type FormInputs = {
@@ -48,10 +48,10 @@ const CreatePost: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Header />
-      <div className={styles.create_section}>
+      <div className={style.create_section}>
         <h1>ブログ新規投稿</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className={styles.from}>
+          <div className={style.from}>
             <label>タイトル</label>
             <input
               type="text"
@@ -68,7 +68,7 @@ const CreatePost: React.FC = () => {
 
           <br />
 
-          <div className={styles.form}>
+          <div className={style.form}>
             <label>本文</label>
             <textarea
               rows={20}
@@ -86,7 +86,7 @@ const CreatePost: React.FC = () => {
 
           <ImageUploadForm setThumbnailUrl={setThumbnailUrl} />
 
-          <button className="button" type="submit">
+          <button className={style.button} type="submit">
             投稿
           </button>
         </form>

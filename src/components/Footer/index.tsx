@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "@/components/Footer/Footer.module.css";
+import style from "@/styles/Home.module.css";
 import Link from "next/link";
 import TwitterTimeline from "@/components/TwitterTimeline/index";
 
@@ -17,7 +18,7 @@ const Footer = () => {
           </p>
           <ul className={styles.about_list}>
             <li>
-              <div className={styles.readmore}>
+              <div className={style.readmore}>
                 <Link href="/posts/7">プロフィール詳細</Link>
               </div>
             </li>

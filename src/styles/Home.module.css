@@ -18,3 +18,50 @@
   object-position: center;
   position: relative;
 }
+
+.main_content {
+  color: #333;
+  font-size: 1rem;
+  font-family: "Noto Sans", "Noto Sans JP", sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+.readmore {
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.readmore a {
+  padding-bottom: 1px;
+  color: #333;
+  position: relative;
+}
+
+.readmore a::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background: #333;
+  transition: all 200ms ease;
+}
+
+.readmore a:hover::after {
+  opacity: 0;
+  transform: translateY(3px);
+}

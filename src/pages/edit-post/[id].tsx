@@ -6,7 +6,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import ImageUploadForm from "@/components/ImageUploadForm/index";
 import Head from "next/head";
 import Header from "@/components/Header/index";
-import styles from "@/styles/Home.module.css";
+import style from "@/styles/Home.module.css";
 import Image from "next/image";
 
 type Props = {
@@ -78,10 +78,10 @@ const EditPost = ({ post }: Props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Header />
-      <div className={styles.create_section}>
+      <div className={style.create_section}>
         <h1>ブログ投稿編集</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className={styles.title}>
+          <div className={style.title}>
             <label>タイトル</label>
             <input
               type="text"
@@ -96,7 +96,7 @@ const EditPost = ({ post }: Props) => {
             {errors.title && <p>{errors.title.message}</p>}
           </div>
           <br />
-          <div className={styles.form}>
+          <div className={style.form}>
             <label>本文</label>
             <textarea
               rows={20}
@@ -116,7 +116,7 @@ const EditPost = ({ post }: Props) => {
           <div>
             {thumbnailUrl && (
               <Image
-                className={styles.image}
+                className={style.image}
                 src={`${process.env.NEXT_PUBLIC_API_URL}${post.thumbnail}`}
                 alt="サムネイル画像"
                 width={400}
@@ -124,7 +124,7 @@ const EditPost = ({ post }: Props) => {
               />
             )}
           </div>
-          <button className="button" type="submit">
+          <button className={style.button} type="submit">
             編集
           </button>
         </form>

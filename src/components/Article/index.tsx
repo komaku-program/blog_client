@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Post } from "@/types";
 import styles from "@/components/Article/Article.module.css";
+import style from "@/styles/Home.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
@@ -94,7 +95,7 @@ const Article = ({ post, isFullText }: Props) => {
           {post.content}
         </Linkify>
       </p>
-      <div className={styles.readmore}>
+      <div className={style.readmore}>
         {!isFullText && <Link href={`/posts/${post.id}`}>READ MORE</Link>}
       </div>
 
