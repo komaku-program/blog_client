@@ -5,7 +5,6 @@ import axios from "axios";
 import Link from "next/link";
 import { useLogin } from "@/components/LoginContext";
 import styles from "@/styles/Modal.module.css";
-import style from "@/styles/Home.module.css";
 
 type FormInputs = {
   email: string;

@@ -43,7 +43,6 @@ const UniversalContainer = ({ post, posts }: Props) => {
           <Article key={post.id} isFullText={true} post={post} />
         ) : null}
       </main>
-      {/* 以下はサイドバー */}
       <Side setFilterMonth={setFilterMonth} />
     </div>
   );
