@@ -101,12 +101,12 @@ const Article = ({ post, isFullText }: Props) => {
 
       {/* ユーザー毎の投稿表示後実装 */}
       {/* {isLoggedIn && userId === post.user_id && ( */}
-      {/* <div className={styles.buttons}>
+      <div className={styles.buttons}>
         <Link href={`/edit-post/${post.id}`}>
           <button>Edit</button>
         </Link>
         <button onClick={() => handleDelete(post.id)}>Delete</button>
-      </div> */}
+      </div>
       {/* )} */}
     </article>
   );
